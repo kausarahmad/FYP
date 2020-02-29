@@ -3,7 +3,6 @@ intents:
   - goodbye
   - affirm
   - deny
-  - ask_price
   - ask_price_without_details
   - give_details
   - bot_challenge

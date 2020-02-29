@@ -53,11 +53,9 @@ data/lookup_tables/badge.txt
 - a [hyundai](make) [Veloster](model) [SRTURBO](badge) [hatchback](body_type) that runs on [petrol](fuel_type)
 - the price of a [SUV](body_type) [subaru](make) [XV](model) [20i](badge) with [petrol](fuel_type) fuel
 - tell me the price of a [sedan](body_type) [subaru](make) [liberty](model) [25i sports premium sat](badge) with fuel [diesel](fuel_type)
-
-## intent:ask_price
-- what is the price of a [nissan](make) [pathfinder](model)
-- can you tell me the price of a [nissan](make) [skyline](model)
-- tell me the price of a [ford](make) [mustang](model)
+- what is the price of a [nissan](make) [pathfinder](model) [7-seat](badge) with [gas](fuel_type)
+- can you tell me the price of a [nissan](make) [skyline](model) [4wd](badge) runs on [lpg](fuel_type)
+- tell me the price of a [ford](make) [mustang](model) [2door coupe](body_type) [GT](badge) on [lpg](fuel_type)
 - how much would a [ford](make) [falcon](model) cost?
 - inform me of the cost of a [ford](make) [ranger](model)
 - how much will I need to spend to buy a [rover](make) [75](model)?
