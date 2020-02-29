@@ -1,0 +1,43 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - ask_price
+  - intend_ask_price
+  - bot_challenge
+
+actions:
+- utter_greet
+- utter_did_that_help
+- utter_anything_else
+- utter_ask_car_details
+- utter_goodbye
+- utter_iamabot
+- action_predict_price
+
+responses:
+  utter_greet:
+  - text: "Hello, how can I help you?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_goodbye:
+  - text: "See ya!"
+  - text: "Nice talking to you!"
+  - text: "Adios!"
+
+  utter_iamabot:
+  - text: "I am a bot, beep boop."
+  
+  utter_anything_else:
+  - text: "Can I help you with anything else?"
+  
+  utter_ask_car_details:
+  - text: "Can I know the details of the car you're looking for? Like make, model, fuel type, and other specifications?"
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

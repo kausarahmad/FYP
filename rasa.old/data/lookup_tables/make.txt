@@ -1,0 +1,203 @@
+Mercedes-Benz
+Mercury
+MINI
+Mitsubishi
+Morgan
+Morris
+Nissan
+Oldsmobile
+Opel
+Peugeot
+Plymouth
+Pontiac
+Porsche
+Proton
+RAM
+Renault
+Rolls-Royce
+Rover
+Saab
+Skoda
+smart
+SsangYong
+Studebaker
+Subaru
+Sunbeam
+Suzuki
+Tesla
+Toyota
+TRD
+Triumph
+TVR
+Vauxhall
+Volkswagen
+Volvo
+Westfield
+Willys
+Abarth
+AC
+Alfa Romeo
+Armstrong Siddeley
+Aston Martin
+Audi
+Austin
+Austin Healey
+Bentley
+BMW
+Bufori
+Buick
+Cadillac
+Chery
+Chevrolet
+Chrysler
+Citroen
+CSV
+Custom
+Daewoo
+Daihatsu
+Daimler
+Datsun
+Dodge
+Elfin
+Eunos
+Ferrari
+Fiat
+ford
+ford Performance Veh
+Foton
+Fuso
+GMC
+Great Wall
+Haval
+HDT
+Higer
+Hino
+Holden
+Holden Special Vehic
+Honda
+Humber
+Hummer
+Hyundai
+Infiniti
+Isuzu
+Iveco
+Jaguar
+Jeep
+Jensen
+Kia
+Lamborghini
+Lancia
+Land Rover
+LDV
+Lexus
+Leyland
+Lincoln
+Lotus
+Mahindra
+Maserati
+Mazda
+Land
+Great
+Tata
+Alfa
+Range Rover
+HSV
+Other
+no record
+Geely
+Aston
+Mercedes-AMG
+MG
+Koenigsegg
+NEO
+Freightliner
+Mitsubishi Fuso
+JMC
+BMW Alpina
+Seat
+M.G.
+ZX
+FPV
+Alpina
+London
+HILLMAN
+HOLDEN HDT
+ZX AUTO
+Mercedes-Maybach
+Bertone
+Maybach
+GOGGOMOBIL
+DE TOMASO
+U.D.
+NSU
+Goliath
+FSM
+LADA
+Panther
+Commer
+Ariel
+Packard
+Caterham
+TD 2000
+Rambler
+International
+Durant
+KTM
+Bullet
+Robnell
+ISO
+DeSoto
+Alvis
+London Taxi Company
+Stutz
+Bristol
+Bedford
+AM General
+Mack
+Wolseley
+Bolwell
+Riley
+Graham
+Alpine-Renault
+Facel
+Steyr-Puch
+SS
+Bond
+Vanden Plas
+Dover
+DKW
+Delahaye
+Standard
+Hudson
+Heron
+Caterpillar
+Matra
+Marcos
+Holden Special Vehicles
+Holden Special Vehicles
+Ford Performance Vehicles
+AMC
+Ultima
+Berkeley
+Simca
+Asia Motors
+ACE
+Lightburn
+Nash
+Pierce-Arrow
+Jewett
+Blade
+Messerschmitt
+Invicta
+Swallow
+JAC
+Reliant
+Stewart
+Hupmobile
+Amphicar
+Singer
+Zimmer
+Aero
+Alpine
+Perentti
+Galloway
