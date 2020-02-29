@@ -4,7 +4,8 @@ intents:
   - affirm
   - deny
   - ask_price
-  - intend_ask_price
+  - ask_price_without_details
+  - give_details
   - bot_challenge
 
 actions:
@@ -35,7 +36,7 @@ responses:
   - text: "Can I help you with anything else?"
   
   utter_ask_car_details:
-  - text: "Can I know the details of the car you're looking for? Like make, model, fuel type, and other specifications?"
+  - text: "Can I know the details of the car you're looking for? What is its make, model, specification, fuel type, and body type?"
   
 
 session_config:

@@ -29,7 +29,7 @@
 - no way
 - not really
 
-## intent:intend_ask_price
+## intent:ask_price_without_details
 - can I know the price of a car?
 - can you tell me the price of cars?
 - what is the price of car?
@@ -45,6 +45,14 @@ data/lookup_tables/body_type.txt
 
 ## lookup:fuel_type
 data/lookup_tables/fuel_type.txt
+
+## lookup:badge
+data/lookup_tables/badge.txt
+
+## intent:give_details
+- a [hyundai](make) [Veloster](model) [SRTURBO](badge) [hatchback](body_type) that runs on [petrol](fuel_type)
+- the price of a [SUV](body_type) [subaru](make) [XV](model) [20i](badge) with [petrol](fuel_type) fuel
+- tell me the price of a [sedan](body_type) [subaru](make) [liberty](model) [25i sports premium sat](badge) with fuel [diesel](fuel_type)
 
 ## intent:ask_price
 - what is the price of a [nissan](make) [pathfinder](model)
