@@ -16,6 +16,13 @@ actions:
 - utter_iamabot
 - action_predict_price
 
+entities:
+- make
+- model
+- badge
+- fuel_type
+- body_type
+
 responses:
   utter_greet:
   - text: "Hello, how can I help you?"
