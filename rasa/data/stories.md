@@ -8,6 +8,13 @@
   - utter_did_that_help
 * affirm OR deny
   - utter_anything_else
+  
+## ask city path 1
+* which_city_cheaper
+  - action_return_cheapest_city
+  - utter_did_that_help
+* affirm OR deny
+  - utter_anything_else
 
 ## greet
 * greet

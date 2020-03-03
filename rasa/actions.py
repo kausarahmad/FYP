@@ -10,13 +10,16 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import json
 import transformations
+import util_database
 import pickle
 from datetime import datetime
-import pymysql
 import numpy as np
+from operator import itemgetter
 
-db = pymysql.connect(host='localhost',user='root',passwd='',db='caroogle')      #connect with database
-cursor = db.cursor()
+get_make = util_database.get_make
+get_model = util_database.get_model
+get_fuel = util_database.get_fuel
+get_body = util_database.get_body
 
 transform_badge = transformations.transform_badge       #load badge transformation
 
@@ -37,6 +40,9 @@ regressor = pickle.load(open(filename, 'rb'))
 datetime_month = datetime.now().month
 datetime_year = datetime.now().year
 
+with open("cities.txt", "rb") as fp:   #loading cities
+  cities = pickle.load(fp)
+
 class ActionPredictPrice(Action):
 
     def name(self) -> Text:
@@ -51,22 +57,6 @@ class ActionPredictPrice(Action):
         fuel = next(tracker.get_latest_entity_values('fuel_type'), None)
         body = next(tracker.get_latest_entity_values('body_type'), None)
 
-        query_make = ("SELECT dim_make.make_id FROM dim_make WHERE dim_make.make='"+make+"';")
-        cursor.execute(query_make)
-        make = cursor.fetchall()[0][0]
-
-        query_model = ("SELECT dim_model.model_id FROM dim_model WHERE dim_model.model='"+model+"';")
-        cursor.execute(query_model)
-        model = cursor.fetchall()[0][0]
-
-        query_fuel = ("SELECT dim_fuel_type.fuel_type_id FROM dim_fuel_type WHERE dim_fuel_type.fuel_type='"+fuel+"';")
-        cursor.execute(query_fuel)
-        fuel = cursor.fetchall()[0][0]
-
-        query_body = ("SELECT dim_body_type.body_type_id FROM dim_body_type WHERE dim_body_type.body_type='"+body+"';")
-        cursor.execute(query_body)
-        body = cursor.fetchall()[0][0]
-
         year = 2014
         km = 0
         badge = transform_badge(next(tracker.get_latest_entity_values('badge'), None))
@@ -74,8 +64,48 @@ class ActionPredictPrice(Action):
         city = 'Melbourne'
         city = int(le_coordinates2city.transform([city])[0])
         
-        pred = regressor.predict(np.array([make, model, fuel, body, year, km, badge, city, datetime_year, datetime_month]).reshape(1,-1))
+        pred = regressor.predict(np.array([get_make(make), get_model(model), get_fuel(fuel), get_body(body), year, km, badge, city, datetime_year, datetime_month]).reshape(1,-1))
        
         dispatcher.utter_message(text="Price is: $"+str(pred[0]))
+
+        return []
+
+
+class ActionReturnCheapestCity(Action):
+
+    def name(self) -> Text:
+        return "action_return_cheapest_city"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        make = next(tracker.get_latest_entity_values('make'), None)
+        model = next(tracker.get_latest_entity_values('model'), None)
+        fuel = next(tracker.get_latest_entity_values('fuel_type'), None)
+        body = next(tracker.get_latest_entity_values('body_type'), None)
+
+        year = 2014
+        km = 0
+        badge = transform_badge(next(tracker.get_latest_entity_values('badge'), None))
+        badge = int(le_badge_transformed.transform([badge])[0])
+
+        preds = []
+
+        for c in cities:
+            city = int(le_coordinates2city.transform([c])[0])
+            preds.append( regressor.predict(np.array([get_make(make), get_model(model), get_fuel(fuel), get_body(body), year, km, badge, city, datetime_year, datetime_month]).reshape(1,-1))[0] )
+
+        #print(preds)
+
+        min_indices = np.argsort(preds)[:10]
+        min_cities = list(itemgetter(*min_indices)(cities))
+        min_preds =  list(itemgetter(*min_indices)(preds))
+
+        #print("indices: ",min_indices)
+        #print("min_cities",min_cities)
+        #print("min_preds",min_preds)
+       
+        dispatcher.utter_message(text="The cities where this car would be cheaper are (from lowest to highest price):\n"+str(min_cities))
 
         return []

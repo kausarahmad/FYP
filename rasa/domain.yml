@@ -5,6 +5,7 @@ intents:
   - deny
   - ask_price_without_details
   - give_details
+  - which_city_cheaper
   - bot_challenge
 
 actions:
@@ -15,6 +16,7 @@ actions:
 - utter_goodbye
 - utter_iamabot
 - action_predict_price
+- action_return_cheapest_city
 
 entities:
 - make
