@@ -2,6 +2,7 @@
 - hey
 - hello
 - hi
+- yo
 - good morning
 - good evening
 - hey there
@@ -51,6 +52,9 @@ data/lookup_tables/fuel_type.txt
 ## lookup:badge
 data/lookup_tables/badge.txt
 
+## lookup:city
+data/lookup_tables/city.txt
+
 ## intent:give_details
 - a [hyundai](make) [Veloster](model) [SRTURBO](badge) [hatchback](body_type) that runs on [petrol](fuel_type)
 - the price of a [SUV](body_type) [subaru](make) [XV](model) [20i](badge) with [petrol](fuel_type) fuel
@@ -78,6 +82,112 @@ data/lookup_tables/badge.txt
 - lowest cost [rover](make) [mini](model) are found in which city?
 - I want to buy [subaru](make) [BRZ](model) [limited](badge) [automatic](body_type) for a low price, which city should I go to?
 - where would I find the cheapest [hyundai](make) [Veloster](model) [hatchback](body_type) that runs on [petrol](fuel_type)?
+
+## intent:sell_car
+- I want to know how much I can sell my car for
+- Can you tell me how much my car would sell for?
+- How much is my car worth?
+- For how much can I sell my car?
+- What price is my car worth?
+- Can you value my car?
+
+## intent:tell_city
+- [north melbourne](city)
+- [perthville](city)
+- i live in [westcourt](city)
+- i am a resident of [Diamond Creek](city)
+- currently living in [north ryde](city)
+- [launceston](city), tasmania
+- i live in [Forestville](city), sydney
+- [perth](city)
+- [elsternwick](city)
+- [manning](city)
+- [east tamworth](city)
+
+## intent:tell_make
+- I want to sell my [Toyota](make)
+- It's my [Ford](make)
+- I have a [Hyundai](make)
+- I want to sell my [mclaren](make)
+- I am selling my [subaru](make)
+- I own a [suzuki](make)
+
+## intent:tell_model
+- I want to sell my [Toyota](make) [Corolla](model)
+- [350Z](model)
+- It is a [Nissan](make) [350Z](model)
+- I have a [pontiac](make) [gto](model)
+- [cayman](model)
+- [beetle](model)
+- [jeep](make) [commander](model)
+
+## intent:tell_badge  
+- [GLI](badge)
+- [cobra](badge)
+- [turbo](badge)
+- it is a [2WD](badge)
+- It's a [Hybrid Commemorative Edition](badge)
+- My car is a [GT2](badge)
+- [ST TITANIUM 4x4](badge)
+- [30 tdi](badge)
+- It's a [310CDI](badge)
+- [Silverline SE](badge)
+- It's specification is [gt comfort](badge)
+- [raptor](badge)
+- It is a [SLX 16 CRDi](badge)
+- [ST Hybrid](badge)
+- It's spec is [xlt](badge)
+
+## intent:tell_car_year
+- [2004](car_year)
+- [2010](car_year)
+- [1990](car_year)
+- it's a [2001](car_year) model
+- my car is a [2016](car_year) model
+- it's from [1984](car_year)
+- my car is from [1989](car_year)
+- [1965](car_year)
+- it was manufactured in [2006](car_year)
+- [2019](car_year)
+- my car was manufactured in [2007](car_year)
+- [1974](car_year)
+
+## intent:tell_mileage
+- it has run [1000](mileage)km
+- my car has covered [14480](mileage)km
+- my car has lasted [763726](mileage) kilometers
+- it has ran [200000](mileage) kilometers
+- it has [827923](mileage)km on the odometer
+- [827289](mileage)km
+- [19999](mileage)kilometers
+- [900000](mileage) kilometers
+
+## intent:tell_color
+- [blue](color)
+- [green](color)
+- it's [red](color)
+- [silver](color)
+- it is [white](color)
+- [orange](color)
+- its color is [grey](color)
+
+## intent:tell_body
+- it is an [SUV](body_type)
+- it is a [limousine](body_type)
+- it's a [cab](body_type)
+- a [Sedan](body_type)
+- [wagon](body_type)
+- it's a tattered old [hatchback](body_type)
+- [van](body_type)
+
+## intent:tell_fuel
+- it runs on [petrol](fuel_type)
+- my car runs on [diesel](fuel_type)
+- [gas](fuel_type)
+- [cng](fuel_type:gas)
+- [lpg](fuel_type)
+- my car's a [hybrid](fuel_type)
+- [dual](fuel_type)
 
 ## intent:bot_challenge
 - are you a bot?
