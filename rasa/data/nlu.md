@@ -2,7 +2,6 @@
 - hey
 - hello
 - hi
-- yo
 - good morning
 - good evening
 - hey there
@@ -36,6 +35,9 @@
 - can I know the price of a car?
 - can you tell me the price of cars?
 - what is the price of car?
+- I want to know the price of a car
+- I want to buy a car
+- i wanna buy a car
 
 ## lookup:make
 data/lookup_tables/make.txt
@@ -70,7 +72,7 @@ data/lookup_tables/city.txt
 - what is the price of a [hyundai](make) [Veloster](model) [hatchback](body_type) that runs on [petrol](fuel_type)?
 
 ## intent:which_city_cheaper
-- in which city would a [Mercedes-Benz](make) [cls63](model) [coupe](badge) [sedan](body_type) that runs on [diesel](fuel_type) be cheaper?
+- in which city would a [Mercedes-Benz](make:mercedes) [cls63](model) [coupe](badge) [sedan](body_type) that runs on [diesel](fuel_type) be cheaper?
 - from where can I buy a [Convertible](body_type) [smart](make) [fortwo](model) [2 door](badge) with [petrol](fuel_type) fuel cheapest?
 - which city would sell a low cost [sedan](body_type) [subaru](make) [liberty](model) [25i](badge) with fuel [diesel](fuel_type)?
 - where would a [nissan](make) [pathfinder](model) [7-seat](badge) with [gas](fuel_type) be lowest cost?
@@ -84,6 +86,7 @@ data/lookup_tables/city.txt
 - where would I find the cheapest [hyundai](make) [Veloster](model) [hatchback](body_type) that runs on [petrol](fuel_type)?
 
 ## intent:sell_car
+- i want to sell my car
 - I want to know how much I can sell my car for
 - Can you tell me how much my car would sell for?
 - How much is my car worth?
@@ -111,6 +114,27 @@ data/lookup_tables/city.txt
 - I want to sell my [mclaren](make)
 - I am selling my [subaru](make)
 - I own a [suzuki](make)
+- [smart](make)
+- I wanna sell a [hyundai](make)
+- [hyundai](make)
+- [toyota](make)
+- a [mclaren](make)
+- [ford](make)
+- [nissan](make)
+- [subaru](make)
+- [mercedes-benz](make)
+
+## intent:tell_want_make
+- I want a [toyota](make)
+- I want to buy a [nissan](make)
+- I want a [nissan](make)
+- I want [mclaren](make)
+- I want to purchase a [hyundai](make)
+- i want a [nissan](make)
+- i want to buy a [mercedes-benz](make)
+- a [nissan](make)
+- [hyundai](make)
+- [suzuki](make)
 
 ## intent:tell_model
 - I want to sell my [Toyota](make) [Corolla](model)
@@ -119,7 +143,10 @@ data/lookup_tables/city.txt
 - I have a [pontiac](make) [gto](model)
 - [cayman](model)
 - [beetle](model)
+- [pathfinder](model)
+- [skyline](model)
 - [jeep](make) [commander](model)
+- [corolla](model)
 
 ## intent:tell_badge  
 - [GLI](badge)
@@ -161,6 +188,15 @@ data/lookup_tables/city.txt
 - [827289](mileage)km
 - [19999](mileage)kilometers
 - [900000](mileage) kilometers
+- [73786482](mileage)kilometers
+- [300000000](mileage)kilometers
+- [78623782](mileage) km
+- kilometers [78628](mileage)
+- [2000] km
+- [300000] km
+- [6000000] km
+- [0] km
+- [0] kilometers
 
 ## intent:tell_color
 - [blue](color)

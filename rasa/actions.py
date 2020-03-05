@@ -15,6 +15,7 @@ import pickle
 from datetime import datetime
 import numpy as np
 from operator import itemgetter
+from collections import defaultdict
 
 get_make = util_database.get_make
 get_model = util_database.get_model
@@ -54,6 +55,8 @@ car_year = ""
 color = ""
 mileage = ""
 mileage_range = ""
+
+entities = defaultdict(lambda: '')
 
 class ActionPredictPrice(Action):
 
@@ -116,6 +119,74 @@ class ActionReturnCheapestCity(Action):
 
         return []
 
+class ActionWhichModelSell(Action):
+
+    def name(self) -> Text:
+        return "action_which_model_sell"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        make = next(tracker.get_latest_entity_values('make'), None)
+       
+        dispatcher.utter_message(text="Which "+make+" car do you want to sell?")
+
+        return []
+
+class ActionWhichBadgeSell(Action):
+
+    def name(self) -> Text:
+        return "action_which_badge_sell"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        model = next(tracker.get_latest_entity_values('model'), None)
+       
+        dispatcher.utter_message(text="Is your "+model+" a ____ ____ ____?")
+
+        return []
+
+class ActionWhichBodySell(Action):
+
+    def name(self) -> Text:
+        return "action_which_body_sell"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+       
+        dispatcher.utter_message(text="which body type?")
+
+        return []
+
+class ActionPredictSellingPrice(Action):
+
+    def name(self) -> Text:
+        return "action_predict_selling_price"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+       
+        for event in tracker.events:
+            if 'parse_data' in event:
+                for entity in event['parse_data']['entities']:
+                    entities[entity['entity']] = entity['value']
+        print(entities)
+
+        pred = regressor.predict(np.array([get_make(entities['make']), get_model(entities['model']), get_fuel(entities['fuel_type']), 
+                                           get_body(entities['body_type']), int(entities['car_year']), int(entities['mileage']), 
+                                           int(le_badge_transformed.transform([entities['badge']])[0]), int(le_coordinates2city.transform([ entities['city'][0].upper() + entities['city'][1:].lower() ])[0]), 
+                                           datetime_year, datetime_month]).reshape(1,-1))
+        min_range = pred[0] - 500
+        max_range = pred[0] + 500
+        dispatcher.utter_message(text="Your car would sell for about $"+str(min_range)+" to $"+str(max_range) )
+
+        return []
+
 class ActionWhichModel(Action):
 
     def name(self) -> Text:
@@ -127,7 +198,7 @@ class ActionWhichModel(Action):
         
         make = next(tracker.get_latest_entity_values('make'), None)
        
-        dispatcher.utter_message(text="Which "+make+" car do you want to sell?")
+        dispatcher.utter_message(text="Which "+make+" car do you want to buy?")
 
         return []
 
@@ -142,7 +213,7 @@ class ActionWhichBadge(Action):
         
         model = next(tracker.get_latest_entity_values('model'), None)
        
-        dispatcher.utter_message(text="Is your "+model+" a ____ ____ ____?")
+        dispatcher.utter_message(text="What type of "+model+" do you want? ___ ____ or ___?")
 
         return []
 
@@ -155,27 +226,31 @@ class ActionWhichBody(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
        
-        dispatcher.utter_message(text="which body type?")
+        dispatcher.utter_message(text="Which body type are you looking for? SUV? Hatchback?")
 
         return []
 
-#action_predict_selling_price
-class ActionPredictSellingPrice(Action):
+class ActionPredictSBSPrice(Action):
 
     def name(self) -> Text:
-        return "action_predict_selling_price"
+        return "action_predict_sbs_price"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
        
         for event in tracker.events:
-        # if there is further data bein parsed
             if 'parse_data' in event:
-                # is only doing something if there actually are entities
                 for entity in event['parse_data']['entities']:
-                    print('Found entity: {}'.format(entity))
+                    entities[entity['entity']] = entity['value']
+        print(entities)
 
-        dispatcher.utter_message(text="")
+        pred = regressor.predict(np.array([get_make(entities['make']), get_model(entities['model']), get_fuel(entities['fuel_type']), 
+                                           get_body(entities['body_type']), int(entities['car_year']), int(entities['mileage']), 
+                                           int(le_badge_transformed.transform([entities['badge']])[0]), int(le_coordinates2city.transform([ entities['city'][0].upper() + entities['city'][1:].lower() ])[0]), 
+                                           datetime_year, datetime_month]).reshape(1,-1))
+        min_range = pred[0] - 500
+        max_range = pred[0] + 500
+        dispatcher.utter_message(text="You can buy this car for about $"+str(min_range)+" to $"+str(max_range) )
 
         return []
