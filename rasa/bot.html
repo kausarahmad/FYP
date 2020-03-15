@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-<<<<<<< HEAD
-            Car Bazaar
-=======
-            Chat Widget
->>>>>>> 344a53f13e73c55aa926700cf3e13d25656ca908
-        </title>
-    </head>
+<head>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="styleShamin.css" rel="stylesheet" />
+    <title>
+        Car Bazaar Chatbot
+    </title>
+    <link rel="icon" href="carbazaar.png">
+</head>
 
     <body>
+	
+	
+      
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <center>
+                        <br><br><br><br>
+                        <img id="logo" src="carbazaar.png" />
+                    </center>
+                    <br>
+                    <center>
+                        <p><h4><b>An automated chatbot to aid users with car dealing</b></h4></p>
+                        <br>
+                        <p><h5>1.  &nbspAssists in buying a car through price prediction</h5></p>
+                        <p><h5>2.   &nbspGives a price range to users who want to sell a car</h5></p>
+                        <p><h5>3.   &nbspLists down the cheapest areas to buy the car of your choice</h5></p>
+                    </center>
+                </div>
+            
+                
+            </div>
+            
+        </div>
+    </div>
+        
+     
+         
+ 
+	
         <div id="webchat"></div>
 <script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
 <script>
@@ -21,15 +51,9 @@
     socketUrl: "http://localhost:5005",
     socketPath: "/socket.io/",
     title: "Welcome to CarBazaar",
-<<<<<<< HEAD
     subtitle: "",
     docViewer: "true",
-    inputTextFieldHint: "Talk to me!",
-=======
-    subtitle: "Aur sunao Raja gee",
-    docViewer: "true",
-    inputTextFieldHint: "Type A Message",
->>>>>>> 344a53f13e73c55aa926700cf3e13d25656ca908
+    inputTextFieldHint: "Ask me something!",
     showFullScreenButton: "true",
     showMessageDate: "true",
   })

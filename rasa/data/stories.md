@@ -9,7 +9,7 @@
 * affirm OR deny
   - utter_anything_else
   
-## ask price path 2
+<!-- ## ask price path 2
 * ask_price_without_details
   - utter_which_city
 * tell_city
@@ -30,7 +30,7 @@
   - action_predict_sbs_price
   - utter_did_that_help
 * affirm OR deny
-  - utter_anything_else
+  - utter_anything_else -->
   
 ## ask city path 1    
 * which_city_cheaper

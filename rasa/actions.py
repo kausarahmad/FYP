@@ -21,6 +21,7 @@ get_make = util_database.get_make
 get_model = util_database.get_model
 get_fuel = util_database.get_fuel
 get_body = util_database.get_body
+get_example_badges = util_database.get_example_badges
 
 transform_badge = transformations.transform_badge       #load badge transformation
 
@@ -144,8 +145,65 @@ class ActionWhichBadgeSell(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         model = next(tracker.get_latest_entity_values('model'), None)
-       
-        dispatcher.utter_message(text="Is your "+model+" a ____ ____ ____?")
+
+        make = ""
+
+        for event in tracker.events:
+            if 'parse_data' in event:
+                for entity in event['parse_data']['entities']:
+                    print("entity:",entity)
+                    if (entity['entity'] == 'make'):
+                        make = entity['value']
+                        break
+                   
+
+        print ("make:",make)
+
+        make_id = get_make(make)
+        model_id = get_model(model)
+
+        b = get_example_badges(make_id, model_id)
+
+        badges_temp = list(b)
+        badges = []
+        for badge in badges_temp:
+            badges.append(badge[0])
+        print("badge list:",badges)
+
+        one = ""
+        two = ""
+        three = ""
+
+        msg = "Is your "+model+" a "
+
+
+
+        try:
+            one = badges[0]
+        except:
+            one = ""
+
+        try:
+            two = badges[1]
+        except:
+            two = ""
+        
+        try:
+            three = badges[2]
+        except:
+            three = ""
+
+        if (one!=""):
+            msg = msg+one
+        if (two!=""):
+            msg = msg+", or "+two
+        if (three!=""):
+            msg = msg+", or "+three
+
+        msg=msg+"? Or some other specification?"
+
+        #dispatcher.utter_message(text="Is your "+model+" a "+one+", "+two+", or "+three+"? Or some other specification?")
+        dispatcher.utter_message(text=msg)
 
         return []
 
