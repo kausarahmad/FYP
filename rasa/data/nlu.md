@@ -39,6 +39,10 @@
 - I want to buy a car
 - i wanna buy a car
 
+## intent:ask_comparison
+- which car is better?
+- can you compare these two cars?
+
 ## lookup:make
 data/lookup_tables/make.txt
 

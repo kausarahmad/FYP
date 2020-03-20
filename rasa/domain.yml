@@ -4,6 +4,7 @@ intents:
   - affirm
   - deny
   - ask_price_without_details
+  - ask_comparison
   - give_details
   - which_city_cheaper
   - sell_car
@@ -46,6 +47,7 @@ actions:
   - action_which_body
   - utter_which_fuel
   - action_predict_sbs_price
+  - action_compare
 
 entities:
   - make
