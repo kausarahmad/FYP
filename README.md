@@ -14,7 +14,9 @@ With the model trained, the next step was to develop a chatbot that understood n
 ## Web Application
 The web application is integrated with the Rasa chatbot through its REST API and its front-end is designed with the help of JavaScript, HTML, and CSS.
 
-![Webpage](https://drive.google.com/uc?export=view&id=1aaceFjnEmBuEqwLMZtEZAmQRCK1IVfNQ)
+![Webpage](screenshots/webpage.jpg)
 
 ## Mobile Application
 The mobile application is integrated with the chatbot through socketio and is designed with the help of Flutter.
+
+![Mobile App](screenshots/mobileapp.jpg)
