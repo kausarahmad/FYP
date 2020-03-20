@@ -20,4 +20,4 @@ The web application is integrated with the Rasa chatbot through its REST API and
 The mobile application is integrated with the chatbot through socketio and is designed with the help of Flutter.
 
 ![Mobile App](screenshots/mobileapp.jpg)
-<img src="screenshots/mobileapp.jpg" width="100" height="100">
+<img src="screenshots/mobileapp.jpg" width="50%" height="50%">
